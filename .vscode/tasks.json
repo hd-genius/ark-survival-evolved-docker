@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build image",
+            "type": "shell",
+            "command": "docker build -t ark-survival-evolved-server .",
+            "group": "build"
+        },
+        {
+            "label": "Run container",
+            "type": "shell",
+            "command": "docker run --rm -it  ark-survival-evolved-server:latest",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run container command",
+            "type": "shell",
+            "command": "docker run --rm -it  ark-survival-evolved-server:latest ${input:container-command}",
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "container-command",
+            "description": "a command to be run inside the container",
+            "type": "promptString"
+        }
+    ]
+}
